@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-CountingChallenge</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>CountingChallenge</command:noun>
+      <maml:description>
+        <maml:para>An answer to the IronScripter Challenge at https://ironscripter.us/a-powershell-counting-challenge/</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Gets the sum and average of every Nth number in a user specified range of positive values.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-CountingChallenge</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="Begin, Iterator, LowerLimit, LowerBound">
+          <maml:name>Start</maml:name>
+          <maml:Description>
+            <maml:para>The value at which to start looping through the set.  Must be a non-zero positive number.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="End, Limit, UpperLimit, UpperBound">
+          <maml:name>Stop</maml:name>
+          <maml:Description>
+            <maml:para>The value at which to stop looping through the set.  Must be a non-zero positive number that is at least a multiple of the Start and Interval parameters.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="Step">
+          <maml:name>Interval</maml:name>
+          <maml:Description>
+            <maml:para>The interval at which to loop over the set.  Must be a value between 1 and 10.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="Step">
+        <maml:name>Interval</maml:name>
+        <maml:Description>
+          <maml:para>The interval at which to loop over the set.  Must be a value between 1 and 10.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="Begin, Iterator, LowerLimit, LowerBound">
+        <maml:name>Start</maml:name>
+        <maml:Description>
+          <maml:para>The value at which to start looping through the set.  Must be a non-zero positive number.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="End, Limit, UpperLimit, UpperBound">
+        <maml:name>Stop</maml:name>
+        <maml:Description>
+          <maml:para>The value at which to stop looping through the set.  Must be a non-zero positive number that is at least a multiple of the Start and Interval parameters.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-CountingChallenge -Start 1 -Stop 512 -Interval 4
+
+  Sum Average DataSet
+  --- ------- -------
+32640     255 {1, 5, 9, 13…}</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the start value to 1, the stop to 512 and takes every 4th number to calculate the Sum and Average.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-CountingChallenge -Start 2 -Stop 150 -Interval 4
+
+  Sum Average DataSet
+  --- ------- -------
+ 2888      76 {2, 6, 10, 14…}</dev:code>
+        <dev:remarks>
+          <maml:para>Sets the start value to 2, the stop to 150 and takes every 4th number to calculate the Sum and Average.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+</helpItems>
