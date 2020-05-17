@@ -18,7 +18,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="Begin, Iterator, LowerLimit, LowerBound">
           <maml:name>Start</maml:name>
           <maml:Description>
-            <maml:para>The value at which to start looping through the set.  Must be a non-zero positive number.</maml:para>
+            <maml:para>The lower boundar for the set (inclusive)</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
@@ -30,7 +30,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="End, Limit, UpperLimit, UpperBound">
           <maml:name>Stop</maml:name>
           <maml:Description>
-            <maml:para>The value at which to stop looping through the set.  Must be a non-zero positive number that is at least a multiple of the Start and Interval parameters.</maml:para>
+            <maml:para>The upper boundary for the set (inclusive based on the interval)</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
@@ -42,7 +42,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="Step">
           <maml:name>Interval</maml:name>
           <maml:Description>
-            <maml:para>The interval at which to loop over the set.  Must be a value between 1 and 10.</maml:para>
+            <maml:para>The value used to obtain the successive numbers in the set</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
@@ -57,7 +57,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="Step">
         <maml:name>Interval</maml:name>
         <maml:Description>
-          <maml:para>The interval at which to loop over the set.  Must be a value between 1 and 10.</maml:para>
+          <maml:para>The value used to obtain the successive numbers in the set</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
@@ -69,7 +69,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="Begin, Iterator, LowerLimit, LowerBound">
         <maml:name>Start</maml:name>
         <maml:Description>
-          <maml:para>The value at which to start looping through the set.  Must be a non-zero positive number.</maml:para>
+          <maml:para>The lower boundar for the set (inclusive)</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
@@ -81,7 +81,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="End, Limit, UpperLimit, UpperBound">
         <maml:name>Stop</maml:name>
         <maml:Description>
-          <maml:para>The value at which to stop looping through the set.  Must be a non-zero positive number that is at least a multiple of the Start and Interval parameters.</maml:para>
+          <maml:para>The upper boundary for the set (inclusive based on the interval)</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
@@ -125,7 +125,7 @@
   --- ------- -------
 32640     255 {1, 5, 9, 13…}</dev:code>
         <dev:remarks>
-          <maml:para>Sets the start value to 1, the stop to 512 and takes every 4th number to calculate the Sum and Average.</maml:para>
+          <maml:para>Gets the Sum, Average and DataSet using a Start of 1, Stop of 512, and Interval of 4</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -136,7 +136,18 @@
   --- ------- -------
  2888      76 {2, 6, 10, 14…}</dev:code>
         <dev:remarks>
-          <maml:para>Sets the start value to 2, the stop to 150 and takes every 4th number to calculate the Sum and Average.</maml:para>
+          <maml:para>Gets the Sum, Average and DataSet using a Start of 2, Stop of 150, and Interval of 4</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-CountingChallenge -Start 5 -Stop 1020 -Interval 3
+
+    Sum Average DataSet
+    --- ------- -------
+ 173568     512 {5, 8, 11, 14…}</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the Sum, Average and DataSet using a Start of 5, Stop of 1020, and Interval of 3</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
